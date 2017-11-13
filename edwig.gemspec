@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Ruby tools for Edwig, a real-time server for transport}
   spec.description   = %q{Provides Ruby SDK for Edwig API and munin plugins}
   spec.homepage      = "http://github.com/af83/edwig"
-  spec.license       = "MIT"
+  spec.license       = "Apache-2.0"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
