@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "edwig"
+require "edwig/munin"
+
+plugin = Edwig::Munin::Plugin.create(ARGV.shift)
+plugin.run(ARGV)
