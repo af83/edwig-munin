@@ -17,6 +17,8 @@ module Edwig::Munin
     end
 
     def run(arguments)
+      self.server = env 'EDWIG_SERVER'
+
       if arguments.first == "config"
         config.each do |key, value|
           puts "#{key} #{value}"
@@ -24,9 +26,8 @@ module Edwig::Munin
         return
       end
 
-      self.server = ENV['EDWIG_SERVER']
-      self.referential = ENV['EDWIG_REFERENTIAL']
-      self.token = ENV['EDWIG_TOKEN']
+      self.referential = env 'EDWIG_REFERENTIAL'
+      self.token = env 'EDWIG_TOKEN'
 
       values.each do |key, value|
         puts "#{key}.value #{value}"

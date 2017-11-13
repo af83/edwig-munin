@@ -28,6 +28,7 @@ module Edwig::Munin
 
     def config
       config = {
+        host_name: server,
         graph_title: "Arrivals and Departures by status",
         graph_order: keys.join(' '),
         graph_info: "Represent StopVisits count by Arrival and Departure statuses",
@@ -62,7 +63,7 @@ module Edwig::Munin
     end
 
     def keys
-      @keys ||= departure_keys + arrival_keys + [departure_key(UNKNOWN_STATUS), arrival_key(UNKNOWN_STATUS)]
+      @keys ||= (departure_keys + arrival_keys + [departure_key(UNKNOWN_STATUS), arrival_key(UNKNOWN_STATUS)]).sort
     end
 
   end

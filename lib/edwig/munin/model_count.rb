@@ -29,6 +29,7 @@ module Edwig::Munin
     def config
       keys = %w{lines stop_areas vehicle_journeys stop_visits}
       config = {
+        host_name: server,
         graph_title: "Models count",
         graph_order: keys.join(' '),
         graph_info: "Represent all models count",
