@@ -3,7 +3,9 @@ module Edwig::Munin
     def values
       partners = RestClient.get("http://#{server}/#{referential}/partners", {content_type: :json, :Authorization => "Token token=#{token}"})
       partnersTab = JSON.parse(partners)
-      counts = Hash.new {|hash, key| hash[key] = 0 }
+
+      counts = {}
+      keys.each { |k| counts[k] = 0 }
 
       partnersTab.each do |partner|
 	      operationalState = partner['PartnerStatus']['OperationalStatus'] || partner['PartnerStatus']['OperationnalStatus']
@@ -14,8 +16,8 @@ module Edwig::Munin
     end
 
     def config
-      keys = %w{up down unknown}
       config = {
+        host_name: server,
         graph_title: "Partners by status",
         graph_order: keys.join(' '),
         graph_info: "Represent Partner count by operational statuses",
@@ -31,6 +33,10 @@ module Edwig::Munin
       end
 
       config
+    end
+
+    def keys
+      @keys ||= %w{up down unknown}
     end
   end
 end
