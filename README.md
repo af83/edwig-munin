@@ -1,4 +1,5 @@
 # Edwig Ruby
+<a href="https://codeclimate.com/github/af83/edwig-ruby/maintainability"><img src="https://api.codeclimate.com/v1/badges/493e9b864db0e6f02cc9/maintainability" /></a>
 
 Ruby tools for [Edwig](https://github.com/af83/edwig)
 
